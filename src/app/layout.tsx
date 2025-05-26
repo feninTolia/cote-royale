@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Footer } from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 const gambarino = localFont({
   src: "./gambarino.woff2",
@@ -29,7 +31,14 @@ export default function RootLayout({
       lang="en"
       className={`${raleway.variable} ${gambarino.variable} antialiased`}
     >
-      <body>{children}</body>
+      <body className="bg-neutral-900 text-white">
+        <main className="pt-14 md:pt-16">
+          <Navbar />
+          {children}
+        </main>
+
+        <Footer />
+      </body>
     </html>
   );
 }
