@@ -29,6 +29,7 @@ const ProductFeature: FC<ProductFeatureProps> = async ({ slice }) => {
         <FadeIn
           className="opacity-0 motion-safe:translate-y-16 lg:col-span-2 lg:row-span-2"
           vars={{ duration: 1 }}
+          start="top 70%"
         >
           <PrismicNextImage
             field={slice.primary.image}
