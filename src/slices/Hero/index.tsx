@@ -1,10 +1,10 @@
 import { Bounded } from "@/components/Bounded";
+import ButtonLink from "@/components/ButtonLink";
 import FadeIn from "@/components/FadeIn";
 import RevealText from "@/components/RevealText";
 import { Content } from "@prismicio/client";
-import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-import clsx from "clsx";
 import { FC } from "react";
 
 export type HeroProps = SliceComponentProps<Content.HeroSlice>;
@@ -50,16 +50,11 @@ const Hero: FC<HeroProps> = ({ slice }) => {
           className="mt-8 motion-safe:translate-y-5"
         >
           {slice.primary.button.map((link) => (
-            <PrismicNextLink
+            <ButtonLink
               key={link.key}
               field={link}
-              className={clsx(
-                "inline-flex items-center justify-center px-12 py-4 text-center font-extrabold tracking-wider uppercase transition-colors duration-300",
-                link.variant === "Secondary"
-                  ? "border border-white text-white hover:bg-white/20"
-                  : "bgw-white text-black hover:bg-white/80",
-                "w-fit",
-              )}
+              className="w-fit"
+              variant="Secondary"
             />
           ))}
         </FadeIn>
