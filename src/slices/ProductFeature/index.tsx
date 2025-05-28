@@ -52,7 +52,7 @@ const ProductFeature: FC<ProductFeatureProps> = async ({ slice }) => {
         </FadeIn>
 
         <FadeIn
-          vars={{ duration: 1, delay: 1 }}
+          vars={{ duration: 1, delay: 0.5 }}
           className="animate-in relative self-end bg-white/10 opacity-0 will-change-transform motion-safe:translate-y-16"
         >
           <PrismicNextImage

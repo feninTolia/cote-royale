@@ -42,7 +42,7 @@ const RevealText = ({
           stagger: staggerAmount,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: ".reveal-text-word",
+            trigger: containerRef.current,
             start,
           },
         });
