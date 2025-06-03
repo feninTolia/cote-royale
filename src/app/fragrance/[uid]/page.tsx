@@ -93,9 +93,10 @@ export async function generateMetadata({
   const { uid } = await params;
   const client = createClient();
   const page = await client.getByUID("fragrance", uid).catch(() => notFound());
+  const settings = await client.getSingle("settings");
 
   return {
-    title: asText(page.data.title) + " | Côte Royal",
+    title: asText(page.data.title) + " | " + settings.data.site_title,
     description: `Discover ${asText(page.data.title)}, the newest fragrance from Côte Royal`,
     openGraph: {
       images: [{ url: asImageSrc(page.data.meta_image) ?? "" }],
