@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
-import { Raleway } from "next/font/google";
-import localFont from "next/font/local";
-import "./globals.css";
 import { Footer } from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { createClient } from "@/prismicio";
 import { isFilled } from "@prismicio/client";
+import type { Metadata } from "next";
+import { Raleway } from "next/font/google";
+import localFont from "next/font/local";
+import "./globals.css";
 
 const gambarino = localFont({
   src: "./gambarino.woff2",
@@ -35,11 +35,14 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const client = createClient();
+  const settings = await client.getSingle("settings");
+
   return (
     <html
       lang="en"
@@ -47,7 +50,7 @@ export default function RootLayout({
     >
       <body className="bg-neutral-900 text-white">
         <main className="pt-14 md:pt-16">
-          <Navbar />
+          <Navbar settings={settings} />
           {children}
         </main>
 
