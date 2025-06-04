@@ -1,5 +1,5 @@
 import { FragranceDocumentData } from "@/../prismicio-types";
-import { IconType } from "react-Icons";
+import { IconType } from "react-icons";
 import {
   LuCrown,
   LuDroplet,
