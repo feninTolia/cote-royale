@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import { ViewTransitions } from "next-view-transitions";
 
 const gambarino = localFont({
   src: "./gambarino.woff2",
@@ -44,18 +45,20 @@ export default async function RootLayout({
   const settings = await client.getSingle("settings");
 
   return (
-    <html
-      lang="en"
-      className={`${raleway.variable} ${gambarino.variable} antialiased`}
-    >
-      <body className="bg-neutral-900 text-white">
-        <main className="pt-14 md:pt-16">
-          <Navbar settings={settings} />
-          {children}
-        </main>
+    <ViewTransitions>
+      <html
+        lang="en"
+        className={`${raleway.variable} ${gambarino.variable} antialiased`}
+      >
+        <body className="bg-neutral-900 text-white">
+          <main className="pt-14 md:pt-16">
+            <Navbar settings={settings} />
+            {children}
+          </main>
 
-        <Footer />
-      </body>
-    </html>
+          <Footer />
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }

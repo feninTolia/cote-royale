@@ -1,10 +1,9 @@
 "use client";
 
+import { TransitionLink } from "@/components/TransitionLink";
 import { Content } from "@prismicio/client";
-import { PrismicNextLink } from "@prismicio/next";
 import clsx from "clsx";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import { HiShoppingBag, HiUser } from "react-icons/hi";
 import { HiBars3, HiMagnifyingGlass, HiXMark } from "react-icons/hi2";
@@ -20,30 +19,25 @@ type NavBarProps = {
 const NavIcons = ({ className = "", tabIndex }: NavIconsProps) => {
   return (
     <div className={clsx("flex items-center gap-8", className)}>
-      <Link
+      <a
         href="#"
         className="text-white"
         aria-label="search"
         tabIndex={tabIndex}
       >
         <HiMagnifyingGlass size={24} />
-      </Link>
-      <Link
+      </a>
+      <a
         href="#"
         className="text-white"
         aria-label="account "
         tabIndex={tabIndex}
       >
         <HiUser size={24} />
-      </Link>
-      <Link
-        href="#"
-        className="text-white"
-        aria-label="cart"
-        tabIndex={tabIndex}
-      >
+      </a>
+      <a href="#" className="text-white" aria-label="cart" tabIndex={tabIndex}>
         <HiShoppingBag size={24} />
-      </Link>
+      </a>
     </div>
   );
 };
@@ -65,7 +59,7 @@ const Navbar = ({ settings }: NavBarProps) => {
           </button>
 
           <div className="absolute left-1/2 -translate-x-1/2 transform">
-            <Link href="/">
+            <TransitionLink href="/">
               <Image
                 src="/logo.svg"
                 alt="logo"
@@ -73,7 +67,7 @@ const Navbar = ({ settings }: NavBarProps) => {
                 height={30}
                 className="w-32 md:w-44"
               />
-            </Link>
+            </TransitionLink>
           </div>
 
           <div className="flex p-2">
@@ -84,7 +78,7 @@ const Navbar = ({ settings }: NavBarProps) => {
 
       <div
         className={clsx(
-          "nav-drawer fixed inset-0 z-40 bg-black/40 opacity-0 transition-all duration-500",
+          "nav-drawer-blur fixed inset-0 z-40 bg-black/40 opacity-0 transition-all duration-500",
           isDrawerOpen
             ? "pointer-events-auto opacity-100 backdrop-blur-xl"
             : "pointer-events-none backdrop-blur-none",
@@ -114,7 +108,7 @@ const Navbar = ({ settings }: NavBarProps) => {
 
         <nav className="space-y-4" aria-label="Main Navigation">
           {settings?.data.navigation_link.map((link) => (
-            <PrismicNextLink
+            <TransitionLink
               field={link}
               key={link.key}
               onClick={() => setIsDrawerOpen(false)}

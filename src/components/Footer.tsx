@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import { ReactNode } from "react";
+import { TransitionLink } from "@/components/TransitionLink";
 
 export const Footer = () => {
   return (
@@ -12,7 +12,7 @@ export const Footer = () => {
         <div className="grid gap-10 md:grid-cols-3">
           <NavGroup title="Shop">
             <NavLink href="/fragrance/terra">Terra</NavLink>
-            <NavLink href="/fragrance/igni">Igni</NavLink>
+            <NavLink href="/fragrance/ignis">Ignis</NavLink>
             <NavLink href="/fragrance/aqua">Aqua</NavLink>
           </NavGroup>
 
@@ -34,26 +34,26 @@ export const Footer = () => {
           <p className="text-center text-sm text-gray-400">
             © {new Date().getFullYear()} Côte Royale Inc. All rights reserved
           </p>
-          <Link
+          <TransitionLink
             href="/"
             aria-label="Côte Royale Home"
             className="order-first md:order-none"
           >
             <Image src="/logo.svg" alt="CÔTE ROYALE" width={150} height={25} />
-          </Link>
+          </TransitionLink>
           <ul
             aria-label="Legal"
             className="flex flex-wrap justify-center gap-6 text-sm text-gray-400"
           >
             <li>
-              <Link href="#" className="hover:text-white">
+              <a href="#" className="hover:text-white">
                 Terms &amp; conditions
-              </Link>
+              </a>
             </li>
             <li>
-              <Link href="#" className="hover:text-white">
+              <a href="#" className="hover:text-white">
                 Privacy Policy
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
@@ -89,9 +89,9 @@ type NavLinkProps = {
 const NavLink = ({ href, children }: NavLinkProps) => {
   return (
     <li>
-      <Link href={href} className="hover:text-gray-300">
+      <TransitionLink href={href} className="hover:text-gray-300">
         {children}
-      </Link>
+      </TransitionLink>
     </li>
   );
 };

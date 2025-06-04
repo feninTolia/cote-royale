@@ -41,9 +41,9 @@ const FragranceDisplay = async ({ id }: Props) => {
         }}
         start="top 50%"
       >
-        <h3 className="font-display md: mb-3 text-5xl md:text-6xl lg:text-7xl">
+        <div className="font-display md: mb-3 text-5xl md:text-6xl lg:text-7xl">
           <PrismicRichText field={fragrance.data.title} />
-        </h3>
+        </div>
 
         <p className="mb-8 text-base font-semibold text-gray-300">
           Eau de Parfum
