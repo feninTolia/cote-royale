@@ -1,12 +1,13 @@
 import { Footer } from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import { createClient } from "@/prismicio";
+import { createClient, repositoryName } from "@/prismicio";
 import { isFilled } from "@prismicio/client";
+import { PrismicPreview } from "@prismicio/next";
 import type { Metadata } from "next";
+import { ViewTransitions } from "next-view-transitions";
 import { Raleway } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
-import { ViewTransitions } from "next-view-transitions";
 
 const gambarino = localFont({
   src: "./gambarino.woff2",
@@ -58,6 +59,7 @@ export default async function RootLayout({
 
           <Footer />
         </body>
+        <PrismicPreview repositoryName={repositoryName} />
       </html>
     </ViewTransitions>
   );
