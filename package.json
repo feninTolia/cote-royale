@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@slicemachine/adapter-next": "^0.3.77",
+    "@slicemachine/adapter-next": "^0.3.78",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -33,7 +33,7 @@
     "eslint-config-next": "15.3.2",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "slice-machine-ui": "^2.16.0",
+    "slice-machine-ui": "^2.16.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
