@@ -2,6 +2,8 @@
 
 import { Content } from "@prismicio/client";
 import { FragranceType } from "./types";
+import { Fragment } from "react";
+import clsx from "clsx";
 
 type Props = {
   question: Content.QuizDocumentDataQuestionsItem;
@@ -20,6 +22,28 @@ const Question = ({
 }: Props) => {
   return (
     <div className="mx-auto max-w-4xl py-10 text-center">
+      {/* Step Counter */}
+      <div className="mx-auto mb-10 flex w-full max-w-md items-center">
+        {Array.from({ length: totalQuestions }).map((_, idx) => (
+          <Fragment key={idx}>
+            <div
+              className={clsx(
+                "flex size-14 items-center justify-center rounded-full border border-gray-600 text-xl font-semibold transition-all duration-1000",
+                idx + 1 < questionNumber &&
+                  "scale-100 bg-neutral-700 text-neutral-50",
+                idx + 1 === questionNumber &&
+                  "scale-105 bg-neutral-50 text-neutral-950",
+                idx + 1 > questionNumber &&
+                  "scale-100 bg-neutral-900 text-neutral-50",
+              )}
+            >
+              {idx + 1}
+            </div>
+            <div className="h-px w-full flex-1 bg-gray-600 last:hidden"></div>
+          </Fragment>
+        ))}
+      </div>
+
       <div className="mb-14">
         <p className="mb-3 tracking-widest uppercase">Step {questionNumber}</p>
         <h2 className="font-display mb-6 text-4xl md:text-5xl lg:text-6xl">
