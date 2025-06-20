@@ -1,8 +1,8 @@
 "use client";
 
-import { Content } from "@prismicio/client";
+import { asImageSrc, Content } from "@prismicio/client";
 import gsap from "gsap";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Question from "./Question";
 import StartScreen from "./StartScreen";
 import { FragranceType, Vote, Votes } from "./types";
@@ -68,6 +68,26 @@ const Quiz = ({ quizData }: Props) => {
       setQuizStatus("NOT_STARTED");
     }
   };
+
+  // Preload images
+  useEffect(() => {
+    quizData.data.questions.forEach((question) => {
+      if (question.image_aqua?.url) {
+        const img = new Image();
+        img.src = asImageSrc(question.image_aqua, { fit: "max", w: 640 });
+      }
+
+      if (question.image_ignis?.url) {
+        const img = new Image();
+        img.src = asImageSrc(question.image_ignis, { fit: "max", w: 640 });
+      }
+
+      if (question.image_terra?.url) {
+        const img = new Image();
+        img.src = asImageSrc(question.image_terra, { fit: "max", w: 640 });
+      }
+    });
+  }, []);
 
   console.log("votes: ", votes);
   return (
